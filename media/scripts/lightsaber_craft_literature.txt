@@ -1,0 +1,15 @@
+module lightsaber_craft
+{
+    item sw_fan_fiction
+    {
+        DisplayCategory  = SkillBook,
+        Weight           = 0.1,
+        Type             = Literature,
+        DisplayName      = Episode IX: The Last Jedi,
+        Icon             = sw_fan_fiction,
+        TeachedRecipes   = Craft Luke's Lightsaber;Craft Anakin's Lightsaber;Craft Darth Vader's Lightsaber;Craft Obi Wan's Lightsaber;Craft Count Dooku's Lightsaber;Craft Mace Windu's Lightsaber,
+        ReplaceOnUse     = sw_fan_fiction,
+        StaticModel      = Magazine,
+        WorldStaticModel = sw_fan_fiction,
+    }
+}

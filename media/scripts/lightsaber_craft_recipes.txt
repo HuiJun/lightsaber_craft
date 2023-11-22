@@ -1,0 +1,105 @@
+module Base
+{
+
+	recipe Craft Luke's Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        GreenkyberCrystal                      = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity = 8,
+        NeedToBeLearn                         : true,
+        Result                                : luke_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
+	recipe Craft Anakin's Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        BluekyberCrystal                       = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity = 8,
+        NeedToBeLearn                         : true,
+        Result                                : anakin_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
+	recipe Craft Darth Vader's Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        RedkyberCrystal                        = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity    = 8,
+        NeedToBeLearn                         : true,
+        Result                                : darthvader_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
+	recipe Craft Obi Wan's Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        BluekyberCrystal                       = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity    = 8,
+        NeedToBeLearn                         : true,
+        Result                                : kenobi_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
+	recipe Craft Count Dooku's Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        RedkyberCrystal                        = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity = 8,
+        NeedToBeLearn                         : true,
+        Result                                : dooku_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
+	recipe Craft Mace Windu's Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        PurplekyberCrystal                     = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity = 8,
+        NeedToBeLearn                         : true,
+        Result                                : mace_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+}

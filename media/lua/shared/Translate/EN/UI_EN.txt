@@ -1,0 +1,6 @@
+UI_EN = {
+  
+    UI_optionscreen_binding_Ignite_LS = "Ignite Lightsaber Key",
+	UI_optionscreen_binding_lightsaber_craft = "Lightsaber Craft",
+
+}

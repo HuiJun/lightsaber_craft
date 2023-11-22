@@ -1,0 +1,6 @@
+UI_ES = {
+  
+    UI_optionscreen_binding_Ignite_LS = "Tecla para activar o desactivar sable de luz",
+	UI_optionscreen_binding_lightsaber_craft = "Light Saber Craft",
+
+}

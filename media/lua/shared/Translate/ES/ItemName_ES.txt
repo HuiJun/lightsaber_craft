@@ -1,0 +1,16 @@
+ItemName_ES = {
+/* Items */
+
+	ItemName_lightsaber_craft.anakin_off =  "Sable de Anakin",
+	ItemName_lightsaber_craft.anakin_on =  "Sable de Anakin",
+	ItemName_lightsaber_craft.darthvader_off =  "Sable de Vader",
+	ItemName_lightsaber_craft.darthvader_on =  "Sable de Vader",
+	ItemName_lightsaber_craft.dooku_off =  "Sable de Dooku",
+	ItemName_lightsaber_craft.dooku_on =  "Sable de Dooku",
+	ItemName_lightsaber_craft.kenobi_off =  "Sable de Ben",
+	ItemName_lightsaber_craft.kenobi_on =  "Sable de Ben",
+	ItemName_lightsaber_craft.luke_off =  "Sable de Luke",
+	ItemName_lightsaber_craft.luke_on =  "Sable de Luke",
+	ItemName_lightsaber_craft.mace_off =  "Sable de Mace",
+	ItemName_lightsaber_craft.mace_on =  "Sable de Mace",
+}

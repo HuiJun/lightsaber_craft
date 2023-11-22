@@ -1,0 +1,76 @@
+module Base
+{
+
+    model anakin_off
+    {
+        mesh    = weapons/1handed/anakin_off,
+        texture = weapons/1handed/anakin_off,
+    }
+
+    model anakin_on
+    {
+        mesh    = weapons/1handed/anakin_on,
+        texture = weapons/1handed/anakin_on,
+    }
+
+    model darthvader_off
+    {
+        mesh    = weapons/1handed/darthvader_off,
+        texture = weapons/1handed/darthvader_off,
+    }
+
+    model darthvader_on
+    {
+        mesh    = weapons/1handed/darthvader_on,
+        texture = weapons/1handed/darthvader_on,
+    }
+
+    model dooku_off
+    {
+        mesh    = weapons/1handed/dooku_off,
+        texture = weapons/1handed/dooku_off,
+    }
+
+    model dooku_on
+    {
+        mesh    = weapons/1handed/dooku_on,
+        texture = weapons/1handed/dooku_on,
+    }
+
+    model kenobi_off
+    {
+        mesh    = weapons/1handed/LukeKenobi_off,
+        texture = weapons/1handed/kenobi_off,
+    }
+
+    model kenobi_on
+    {
+        mesh    = weapons/1handed/LukeKenobi_on,
+        texture = weapons/1handed/kenobi_on,
+    }
+
+    model luke_off
+    {
+        mesh    = weapons/1handed/LukeKenobi_off,
+        texture = weapons/1handed/luke_off,
+    }
+
+    model luke_on
+    {
+        mesh    = weapons/1handed/LukeKenobi_on,
+        texture = weapons/1handed/luke_on,
+    }
+
+    model mace_off
+    {
+        mesh    = weapons/1handed/mace_off,
+        texture = weapons/1handed/mace_off,
+    }
+
+    model mace_on
+    {
+        mesh    = weapons/1handed/mace_on,
+        texture = weapons/1handed/mace_on,
+    }
+
+}
