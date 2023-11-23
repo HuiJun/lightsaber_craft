@@ -18,6 +18,16 @@ local function getSaberAndState(item)
     return t[1], t[2];
 end
 
+local function handleHotbarSwap(hotbar, old_item, new_item)
+    if hotbar == nil then return end
+    local original_slot = old_item:getAttachedSlot()
+    local slot = hotbar.availableSlot[original_slot]
+    if (slot) and (new_item) and (not hotbar:isInHotbar(newitem)) and (hotbar:canBeAttached(slot, new_item)) then
+        hotbar:removeItem(old_item, false)
+        hotbar:attachItem(new_item, slot.def.attachments[new_item:getAttachmentType()], original_slot, slot.def, false)
+    end
+end
+
 local function lightUp(player, item)
     local saber, _ = getSaberAndState(item);
     if saber == nil then return end
@@ -31,22 +41,20 @@ local function toggleLightSaber(player, item, item_name, state, hotbar)
     player:playSound(Lightsaber[item_name][state_int].Sound);
 
     local inventory = player:getInventory();
-
     newitem = inventory:AddItem(Lightsaber[item_name][state_int].Model);
-    player:setPrimaryHandItem(newitem);
+    if player:isPrimaryHandItem(item) then
+        player:setPrimaryHandItem(newitem);
+    end
+    if player:isSecondaryHandItem(item) then
+        player:setSecondaryHandItem(newitem);
+    end
     newitem:setCondition(item:getCondition());
     if not state then
         getCell():removeLamppost(lightByPlayer[player]);
     end
     inventory:Remove(item);
-
-    if hotbar == nil then return end
-    local original_slot = item:getAttachedSlot()
-    local slot = hotbar.availableSlot[original_slot]
-    if (slot) and (newitem) and (not hotbar:isInHotbar(newitem)) and (hotbar:canBeAttached(slot, newitem)) then
-        hotbar:removeItem(item, false)
-        hotbar:attachItem(newitem, slot.def.attachments[newitem:getAttachmentType()], original_slot, slot.def, false)
-    end
+    handleHotbarSwap(hotbar, item, newitem);
+    item = nil;
 end
 
 local function LightSaberGlow(player)
@@ -79,6 +87,19 @@ local function LightSaberGlow(player)
     end
 end
 
+local function LightSaberReplaceInInventory(player)
+    local inventory = player:getInventory();
+    if inventory == nil then return end
+
+    local primary = player:getPrimaryHandItem();
+    for saber_name, _ in pairs(Lightsaber) do
+        saber_on = inventory:getItemFromType(saber_name.."_on", true, true)
+        if saber_on ~= nil and (primary == nil or (saber_on:getType() ~= primary:getType())) then
+            toggleLightSaber(player, saber_on, saber_name, false, getPlayerHotbar(player:getPlayerNum()));
+        end
+    end
+end
+
 local function LightSaberUpdate(key)
     local player = getPlayer();
     if player == nil then return end
@@ -91,9 +112,10 @@ local function LightSaberUpdate(key)
         if saber == nil then return end
 
         if Lightsaber[saber] ~= nil then
-            toggleLightSaber(player, item, saber, state == "off", getPlayerHotbar(0));
+            toggleLightSaber(player, item, saber, state == "off", getPlayerHotbar(player:getPlayerNum()));
         end
     else
+        -- This section only handles putting away a saber when attached to a belt. Because it should be faster
         if player:isAttacking() then return end
 
         local hotbar = getPlayerHotbar(player:getPlayerNum());
@@ -103,7 +125,7 @@ local function LightSaberUpdate(key)
         if slotToCheck == -1 then return end
 
         local item = player:getPrimaryHandItem();
-        if item == nil or item:getAttachedSlot() ~= slotToCheck or item:getModID() ~= "lightsaber_craft" then return end
+        if item == nil or item:getModID() ~= "lightsaber_craft" or item:getAttachedSlot() == -1 then return end
 
 		local saber, state = getSaberAndState(item);
         if saber == nil then return end
@@ -112,10 +134,11 @@ local function LightSaberUpdate(key)
         -- Check if lightsaber is on, if it is toggle off
 
         if state == "on" then
-            toggleLightSaber(player, item, saber, false, hotbar);
+            toggleLightSaber(player, item, saber, false, hotbar, false);
         end
     end
 end
 
 Events.OnPlayerUpdate.Add(LightSaberGlow);
+Events.OnPlayerUpdate.Add(LightSaberReplaceInInventory);
 Events.OnKeyStartPressed.Add(LightSaberUpdate);
