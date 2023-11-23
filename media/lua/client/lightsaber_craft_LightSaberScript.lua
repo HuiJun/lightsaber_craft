@@ -61,29 +61,29 @@ local function LightSaberGlow(player)
     local SaberListOn = {};
     local item = player:getPrimaryHandItem();
     if not item then
-		if lightByPlayer[player] ~= nil then
-			getCell():removeLamppost(lightByPlayer[player]);
-		end
-		return
+        if lightByPlayer[player] ~= nil then
+            getCell():removeLamppost(lightByPlayer[player]);
+        end
+        return
     end
 
     local saber, state = getSaberAndState(item);
     if saber == nil or state == "off" or Lightsaber[saber] == nil then return end
 
     if Lightsaber[saber].LightColorData ~= nil then
-		table.insert(SaberListOn, item);
+        table.insert(SaberListOn, item);
     end
 
     if lightByPlayer[player] ~= nil then
-		getCell():removeLamppost(lightByPlayer[player]);
+        getCell():removeLamppost(lightByPlayer[player]);
     end
 
     for i, it in ipairs(SaberListOn) do
-		if it == item then
-			lightUp(player, it);
-			it:setBloodLevel(0.0);
-			-- player:playSound("SaberHum") -- This was noted in the original mod, but this humming is indeed annoying
-		end
+        if it == item then
+            lightUp(player, it);
+            it:setBloodLevel(0.0);
+            -- player:playSound("SaberHum") -- This was noted in the original mod, but this humming is indeed annoying
+        end
     end
 end
 
@@ -105,10 +105,10 @@ local function LightSaberUpdate(key)
     if player == nil then return end
 
     if (key == getCore():getKey("Ignite_LS")) then
-		local item = player:getPrimaryHandItem();
-		if item == nil then return end
+        local item = player:getPrimaryHandItem();
+        if item == nil then return end
 
-		local saber, state = getSaberAndState(item);
+        local saber, state = getSaberAndState(item);
         if saber == nil then return end
 
         if Lightsaber[saber] ~= nil then
@@ -127,7 +127,7 @@ local function LightSaberUpdate(key)
         local item = player:getPrimaryHandItem();
         if item == nil or item:getModID() ~= "lightsaber_craft" or item:getAttachedSlot() == -1 then return end
 
-		local saber, state = getSaberAndState(item);
+        local saber, state = getSaberAndState(item);
         if saber == nil then return end
 
         -- At this point, we can be sure that the player is trying to put away our primary equipped lightsaber
