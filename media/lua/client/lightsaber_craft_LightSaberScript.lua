@@ -42,16 +42,19 @@ local function toggleLightSaber(player, item, item_name, state, hotbar)
 
     local inventory = player:getInventory();
     newitem = inventory:AddItem(Lightsaber[item_name][state_int].Model);
+    newitem:setCondition(item:getCondition());
+
     if player:isPrimaryHandItem(item) then
         player:setPrimaryHandItem(newitem);
     end
     if player:isSecondaryHandItem(item) then
         player:setSecondaryHandItem(newitem);
     end
-    newitem:setCondition(item:getCondition());
+
     if not state then
         getCell():removeLamppost(lightByPlayer[player]);
     end
+
     inventory:Remove(item);
     handleHotbarSwap(hotbar, item, newitem);
     item = nil;
@@ -101,10 +104,10 @@ local function LightSaberReplaceInInventory(player)
 end
 
 local function LightSaberUpdate(key)
-    local player = getPlayer();
-    if player == nil then return end
-
     if (key == getCore():getKey("Ignite_LS")) then
+        local player = getPlayer();
+        if player == nil then return end
+
         local item = player:getPrimaryHandItem();
         if item == nil then return end
 
@@ -114,31 +117,37 @@ local function LightSaberUpdate(key)
         if Lightsaber[saber] ~= nil then
             toggleLightSaber(player, item, saber, state == "off", getPlayerHotbar(player:getPlayerNum()));
         end
-    else
-        -- This section only handles putting away a saber when attached to a belt. Because it should be faster
-        if player:isAttacking() then return end
+    end
+end
 
-        local hotbar = getPlayerHotbar(player:getPlayerNum());
-        if hotbar == nil then return end
+local function LightSaberAutoOff(key)
+    -- This section only handles putting away a saber when attached to a belt. Because it should be faster
+    local player = getPlayer();
+    if player == nil then return end
 
-        local slotToCheck = hotbar:getSlotForKey(key);
-        if slotToCheck == -1 then return end
+    if player:isAttacking() then return end
 
-        local item = player:getPrimaryHandItem();
-        if item == nil or item:getModID() ~= "lightsaber_craft" or item:getAttachedSlot() == -1 then return end
+    local hotbar = getPlayerHotbar(player:getPlayerNum());
+    if hotbar == nil then return end
 
-        local saber, state = getSaberAndState(item);
-        if saber == nil then return end
+    local slotToCheck = hotbar:getSlotForKey(key);
+    if slotToCheck == -1 then return end
 
-        -- At this point, we can be sure that the player is trying to put away our primary equipped lightsaber
-        -- Check if lightsaber is on, if it is toggle off
+    local item = player:getPrimaryHandItem();
+    if item == nil or item:getModID() ~= "lightsaber_craft" or item:getAttachedSlot() == -1 then return end
 
-        if state == "on" then
-            toggleLightSaber(player, item, saber, false, hotbar, false);
-        end
+    local saber, state = getSaberAndState(item);
+    if saber == nil then return end
+
+    -- At this point, we can be sure that the player is trying to put away our primary equipped lightsaber
+    -- Check if lightsaber is on, if it is toggle off
+
+    if state == "on" then
+        toggleLightSaber(player, item, saber, false, hotbar);
     end
 end
 
 Events.OnPlayerUpdate.Add(LightSaberGlow);
 Events.OnPlayerUpdate.Add(LightSaberReplaceInInventory);
 Events.OnKeyStartPressed.Add(LightSaberUpdate);
+Events.OnKeyStartPressed.Add(LightSaberAutoOff);
