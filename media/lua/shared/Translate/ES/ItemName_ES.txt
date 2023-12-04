@@ -1,6 +1,11 @@
 ItemName_ES = {
 /* Items */
-
+	ItemName_lightsaber_craft.bluesaber_off =  "Blue Lightsaber",
+	ItemName_lightsaber_craft.bluesaber_on =  "Blue Lightsaber",
+	ItemName_lightsaber_craft.yellowsaber_off =  "Yellow Lightsaber",
+    ItemName_lightsaber_craft.yellowsaber_on =  "Yellow Lightsaber",
+    ItemName_lightsaber_craft.redsaber_off =  "Red Lightsaber",
+    ItemName_lightsaber_craft.redsaber_on =  "Red Lightsaber",
 	ItemName_lightsaber_craft.anakin_off =  "Sable de Anakin",
 	ItemName_lightsaber_craft.anakin_on =  "Sable de Anakin",
 	ItemName_lightsaber_craft.darthvader_off =  "Sable de Vader",

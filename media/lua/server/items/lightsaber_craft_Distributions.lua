@@ -1,7 +1,7 @@
 require 'Items/ProceduralDistributions'
 require 'Items/SuburbsDistributions'
 ------------------------------------------------
--- Geek N Freak Issue #66
+-- Episode IIX: The Last Jedi
 ------------------------------------------------
 --postbox
 table.insert(ProceduralDistributions["list"]["BookstoreBooks"].items, "lightsaber_craft.sw_fan_fiction");
@@ -74,25 +74,6 @@ table.insert(SuburbsDistributions["all"]["postbox"].items, "lightsaber_craft.Blu
 table.insert(SuburbsDistributions["all"]["postbox"].items, 5);
 --]]
 ------------------------------------------------
--- Purple Kyber Crystal
-------------------------------------------------
-
-table.insert(ProceduralDistributions["list"]["JewelryGems"].items, "lightsaber_craft.PurplekyberCrystal");
-table.insert(ProceduralDistributions["list"]["JewelryGems"].items, 10);
-table.insert(ProceduralDistributions["list"]["JewelryOthers"].items, "lightsaber_craft.PurplekyberCrystal");
-table.insert(ProceduralDistributions["list"]["JewelryOthers"].items, 10);
-table.insert(ProceduralDistributions["list"]["JewelryStorageAll"].items, "lightsaber_craft.PurplekyberCrystal");
-table.insert(ProceduralDistributions["list"]["JewelryStorageAll"].items, 10);
-table.insert(ProceduralDistributions["list"]["JewelryGold"].items, "lightsaber_craft.PurplekyberCrystal");
-table.insert(ProceduralDistributions["list"]["JewelryGold"].items, 10);
-table.insert(ProceduralDistributions["list"]["JewelryNavelRings"].items, "lightsaber_craft.PurplekyberCrystal");
-table.insert(ProceduralDistributions["list"]["JewelryNavelRings"].items, 10);
-table.insert(ProceduralDistributions["list"]["JewelryWeddingRings"].items, "lightsaber_craft.PurplekyberCrystal");
-table.insert(ProceduralDistributions["list"]["JewelryWeddingRings"].items, 10);
-table.insert(SuburbsDistributions["all"]["postbox"].items, "lightsaber_craft.PurplekyberCrystal");
-table.insert(SuburbsDistributions["all"]["postbox"].items, 5);
---]]
-------------------------------------------------
 -- Red Kyber Crystal
 ------------------------------------------------
 
@@ -114,7 +95,7 @@ table.insert(SuburbsDistributions["all"]["postbox"].items, 5);
 ------------------------------------------------
 -- Yellow Kyber Crystal
 ------------------------------------------------
---[[
+
 table.insert(ProceduralDistributions["list"]["JewelryGems"].items, "lightsaber_craft.YellowkyberCrystal");
 table.insert(ProceduralDistributions["list"]["JewelryGems"].items, 10);
 table.insert(ProceduralDistributions["list"]["JewelryOthers"].items, "lightsaber_craft.YellowkyberCrystal");
@@ -128,6 +109,25 @@ table.insert(ProceduralDistributions["list"]["JewelryNavelRings"].items, 10);
 table.insert(ProceduralDistributions["list"]["JewelryWeddingRings"].items, "lightsaber_craft.YellowkyberCrystal");
 table.insert(ProceduralDistributions["list"]["JewelryWeddingRings"].items, 10);
 table.insert(SuburbsDistributions["all"]["postbox"].items, "lightsaber_craft.YellowkyberCrystal");
+table.insert(SuburbsDistributions["all"]["postbox"].items, 5);
+--]]
+------------------------------------------------
+-- Purple Kyber Crystal
+------------------------------------------------
+--[[
+table.insert(ProceduralDistributions["list"]["JewelryGems"].items, "lightsaber_craft.PurplekyberCrystal");
+table.insert(ProceduralDistributions["list"]["JewelryGems"].items, 10);
+table.insert(ProceduralDistributions["list"]["JewelryOthers"].items, "lightsaber_craft.PurplekyberCrystal");
+table.insert(ProceduralDistributions["list"]["JewelryOthers"].items, 10);
+table.insert(ProceduralDistributions["list"]["JewelryStorageAll"].items, "lightsaber_craft.PurplekyberCrystal");
+table.insert(ProceduralDistributions["list"]["JewelryStorageAll"].items, 10);
+table.insert(ProceduralDistributions["list"]["JewelryGold"].items, "lightsaber_craft.PurplekyberCrystal");
+table.insert(ProceduralDistributions["list"]["JewelryGold"].items, 10);
+table.insert(ProceduralDistributions["list"]["JewelryNavelRings"].items, "lightsaber_craft.PurplekyberCrystal");
+table.insert(ProceduralDistributions["list"]["JewelryNavelRings"].items, 10);
+table.insert(ProceduralDistributions["list"]["JewelryWeddingRings"].items, "lightsaber_craft.PurplekyberCrystal");
+table.insert(ProceduralDistributions["list"]["JewelryWeddingRings"].items, 10);
+table.insert(SuburbsDistributions["all"]["postbox"].items, "lightsaber_craft.PurplekyberCrystal");
 table.insert(SuburbsDistributions["all"]["postbox"].items, 5);
 --]]
 ------------------------------------------------

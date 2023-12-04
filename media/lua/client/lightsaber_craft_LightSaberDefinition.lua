@@ -1,5 +1,40 @@
 Lightsaber = Lightsaber or {};
 
+Lightsaber["bluesaber"] = {
+    LightColorData={ 0.0, 0.0, 1.0 };
+    [0]={
+        Model="lightsaber_craft.bluesaber_off";
+        Sound="AnakinToff";
+    };
+    [1]={
+        Model="lightsaber_craft.bluesaber_on";
+        Sound="AnakinIgnition";
+    };
+}
+
+Lightsaber["yellowsaber"] = {
+    LightColorData={ 1.0, 1.0, 0.0 };
+    [0]={
+        Model="lightsaber_craft.yellowsaber_off";
+        Sound="AnakinToff";
+    };
+    [1]={
+        Model="lightsaber_craft.yellowsaber_on";
+        Sound="AnakinIgnition";
+    };
+}
+
+Lightsaber["redsaber"] = {
+    LightColorData={ 1.0, 0.0, 0.0 };
+    [0]={
+        Model="lightsaber_craft.redsaber_off";
+        Sound="AnakinToff";
+    };
+    [1]={
+        Model="lightsaber_craft.redsaber_on";
+        Sound="AnakinIgnition";
+    };
+}
 Lightsaber["anakin"] = {
     LightColorData={ 0.0, 0.0, 1.0 };
     [0]={
@@ -33,17 +68,6 @@ Lightsaber["darthvader"] = {
         Sound="DarthIgnition";
     }
 }
-Lightsaber["dooku"] = {
-    LightColorData={ 1.0, 0.0, 0.0 };
-    [0]={
-        Model="lightsaber_craft.dooku_off";
-        Sound="DarthToff";
-    },
-    [1]={
-        Model="lightsaber_craft.dooku_on";
-        Sound="DarthIgnition";
-    }
-}
 Lightsaber["luke"] = {
     LightColorData={ 0.0, 1.0, 0.0 };
     [0]={
@@ -54,15 +78,4 @@ Lightsaber["luke"] = {
         Model="lightsaber_craft.luke_on";
         Sound="LukeIgnition";
     }
-}
-Lightsaber["mace"] = {
-    LightColorData={ 1.0, 0.0, 1.0 };
-    [0]={
-        Model="lightsaber_craft.mace_off";
-        Sound="LukeToff";
-    };
-    [1]={
-        Model="lightsaber_craft.mace_on";
-        Sound="LukeIgnition";
-    };
 }

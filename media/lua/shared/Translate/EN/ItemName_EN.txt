@@ -1,16 +1,18 @@
 ItemName_EN = {
 /* Items */
 
+	ItemName_lightsaber_craft.bluesaber_off =  "Blue Lightsaber",
+	ItemName_lightsaber_craft.bluesaber_on =  "Blue Lightsaber",
+	ItemName_lightsaber_craft.yellowsaber_off =  "Yellow Lightsaber",
+    ItemName_lightsaber_craft.yellowsaber_on =  "Yellow Lightsaber",
+    ItemName_lightsaber_craft.redsaber_off =  "Red Lightsaber",
+    ItemName_lightsaber_craft.redsaber_on =  "Red Lightsaber",
 	ItemName_lightsaber_craft.anakin_off =  "Anakin's Saber",
 	ItemName_lightsaber_craft.anakin_on =  "Anakin's Saber",
 	ItemName_lightsaber_craft.darthvader_off =  "Darth Vader's Saber",
 	ItemName_lightsaber_craft.darthvader_on =  "Darth Vader's Saber",
-	ItemName_lightsaber_craft.dooku_off =  "Dooku's Saber",
-	ItemName_lightsaber_craft.dooku_on =  "Dooku's Saber",
 	ItemName_lightsaber_craft.kenobi_off =  "Ben's Saber",
 	ItemName_lightsaber_craft.kenobi_on =  "Ben's Saber",
 	ItemName_lightsaber_craft.luke_off =  "Luke's Saber",
 	ItemName_lightsaber_craft.luke_on =  "Luke's Saber",
-	ItemName_lightsaber_craft.mace_off =  "Mace's Saber",
-	ItemName_lightsaber_craft.mace_on =  "Mace's Saber",
 }

@@ -28,12 +28,11 @@ local function handleHotbarSwap(hotbar, old_item, new_item)
     end
 end
 
-local function lightUp(player, item)
-    local saber, _ = getSaberAndState(item);
-    if saber == nil then return end
-    local color = Lightsaber[saber].LightColorData;
-    lightByPlayer[player] = IsoLightSource.new(player:getX(), player:getY(), player:getZ(), color[1], color[2], color[3], 4);
-    getCell():addLamppost(lightByPlayer[player]);
+local function setAmbientLight(player, color)
+    if lightByPlayer[player] == nil then
+        lightByPlayer[player] = IsoLightSource.new(player:getX(), player:getY(), player:getZ(), color[1], color[2], color[3], 4);
+        getCell():addLamppost(lightByPlayer[player]);
+    end
 end
 
 local function toggleLightSaber(player, item, item_name, state, hotbar)
@@ -44,6 +43,8 @@ local function toggleLightSaber(player, item, item_name, state, hotbar)
     newitem = inventory:AddItem(Lightsaber[item_name][state_int].Model);
     newitem:setCondition(item:getCondition());
 
+    handleHotbarSwap(hotbar, item, newitem);
+
     if player:isPrimaryHandItem(item) then
         player:setPrimaryHandItem(newitem);
     end
@@ -51,43 +52,23 @@ local function toggleLightSaber(player, item, item_name, state, hotbar)
         player:setSecondaryHandItem(newitem);
     end
 
-    if not state then
+    if not state and lightByPlayer[player] ~= nil then
         getCell():removeLamppost(lightByPlayer[player]);
+        lightByPlayer[player] = nil;
     end
 
     inventory:Remove(item);
-    handleHotbarSwap(hotbar, item, newitem);
     item = nil;
 end
 
 local function LightSaberGlow(player)
-    local SaberListOn = {};
     local item = player:getPrimaryHandItem();
-    if not item then
-        if lightByPlayer[player] ~= nil then
-            getCell():removeLamppost(lightByPlayer[player]);
-        end
-        return
-    end
-
     local saber, state = getSaberAndState(item);
     if saber == nil or state == "off" or Lightsaber[saber] == nil then return end
 
-    if Lightsaber[saber].LightColorData ~= nil then
-        table.insert(SaberListOn, item);
-    end
-
-    if lightByPlayer[player] ~= nil then
-        getCell():removeLamppost(lightByPlayer[player]);
-    end
-
-    for i, it in ipairs(SaberListOn) do
-        if it == item then
-            lightUp(player, it);
-            it:setBloodLevel(0.0);
-            -- player:playSound("SaberHum") -- This was noted in the original mod, but this humming is indeed annoying
-        end
-    end
+    setAmbientLight(player, Lightsaber[saber].LightColorData);
+    item:setBloodLevel(0.0);
+    -- player:playSound("SaberHum") -- This was noted in the original mod, but this humming is indeed annoying
 end
 
 local function LightSaberReplaceInInventory(player)
@@ -95,6 +76,7 @@ local function LightSaberReplaceInInventory(player)
     if inventory == nil then return end
 
     local primary = player:getPrimaryHandItem();
+    -- Hopefully this is more performant than iterating through all of player inventory
     for saber_name, _ in pairs(Lightsaber) do
         saber_on = inventory:getItemFromType(saber_name.."_on", true, true)
         if saber_on ~= nil and (primary == nil or (saber_on:getType() ~= primary:getType())) then
@@ -109,8 +91,6 @@ local function LightSaberUpdate(key)
         if player == nil then return end
 
         local item = player:getPrimaryHandItem();
-        if item == nil then return end
-
         local saber, state = getSaberAndState(item);
         if saber == nil then return end
 

@@ -11,6 +11,5 @@ table.insert(keyBinding, bind);
 bind = {};
 bind.value = "Ignite_LS";
 bind.key = 44;
--- bind.key = 20;
 
 table.insert(keyBinding, bind);

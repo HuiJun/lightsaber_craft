@@ -1,6 +1,57 @@
 module Base
 {
 
+	recipe Craft Blue Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        BluekyberCrystal                       = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity = 8,
+        NeedToBeLearn                         : true,
+        Result                                : bluesaber_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
+	recipe Craft Yellow Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        YellowkyberCrystal                     = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity = 8,
+        NeedToBeLearn                         : true,
+        Result                                : yellowsaber_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
+	recipe Craft Red Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        RedkyberCrystal                        = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity = 8,
+        NeedToBeLearn                         : true,
+        Result                                : redsaber_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
 	recipe Craft Luke's Lightsaber
     {
         ElectronicsScrap                       = 10,
@@ -66,40 +117,6 @@ module Base
         SkillRequired                         : Electricity    = 8,
         NeedToBeLearn                         : true,
         Result                                : kenobi_off,
-        keep [Recipe.GetItemTypes.Screwdriver],
-    }
-
-	recipe Craft Count Dooku's Lightsaber
-    {
-        ElectronicsScrap                       = 10,
-        Screws                                 = 10,
-        Plank                                  = 1,
-        Amplifier                              = 1,
-        HandTorch                              = 1,
-        TriggerCrafted                         = 1,
-        RedkyberCrystal                        = 1,
-        Time                                  : 1000.0,
-        Category                              : Electrical,
-        SkillRequired                         : Electricity = 8,
-        NeedToBeLearn                         : true,
-        Result                                : dooku_off,
-        keep [Recipe.GetItemTypes.Screwdriver],
-    }
-
-	recipe Craft Mace Windu's Lightsaber
-    {
-        ElectronicsScrap                       = 10,
-        Screws                                 = 10,
-        Plank                                  = 1,
-        Amplifier                              = 1,
-        HandTorch                              = 1,
-        TriggerCrafted                         = 1,
-        PurplekyberCrystal                     = 1,
-        Time                                  : 1000.0,
-        Category                              : Electrical,
-        SkillRequired                         : Electricity = 8,
-        NeedToBeLearn                         : true,
-        Result                                : mace_off,
         keep [Recipe.GetItemTypes.Screwdriver],
     }
 }
