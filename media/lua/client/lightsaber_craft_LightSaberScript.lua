@@ -20,11 +20,11 @@ end
 
 local function handleHotbarSwap(hotbar, old_item, new_item)
     if hotbar == nil then return end
-    local original_slot = old_item:getAttachedSlot()
-    local slot = hotbar.availableSlot[original_slot]
+    local original_slot = old_item:getAttachedSlot();
+    local slot = hotbar.availableSlot[original_slot];
     if (slot) and (new_item) and (not hotbar:isInHotbar(newitem)) and (hotbar:canBeAttached(slot, new_item)) then
-        hotbar:removeItem(old_item, false)
-        hotbar:attachItem(new_item, slot.def.attachments[new_item:getAttachmentType()], original_slot, slot.def, false)
+        hotbar:removeItem(old_item, false);
+        hotbar:attachItem(new_item, slot.def.attachments[new_item:getAttachmentType()], original_slot, slot.def, false);
     end
 end
 
