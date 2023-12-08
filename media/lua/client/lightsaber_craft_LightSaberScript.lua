@@ -8,7 +8,7 @@
 local lightByPlayer = {};
 
 local function getSaberAndState(item)
-    if item == nil then return nil end
+    if item == nil or item:getModID() ~= "lightsaber_craft" then return nil end
     local type = item:getType();
     if type == nil then return nil end
     local t = {};
@@ -29,10 +29,11 @@ local function handleHotbarSwap(hotbar, old_item, new_item)
 end
 
 local function setAmbientLight(player, color)
-    if lightByPlayer[player] == nil then
-        lightByPlayer[player] = IsoLightSource.new(player:getX(), player:getY(), player:getZ(), color[1], color[2], color[3], 4);
-        getCell():addLamppost(lightByPlayer[player]);
+    if lightByPlayer[player] ~= nil then
+        getCell():removeLamppost(lightByPlayer[player]);
     end
+    lightByPlayer[player] = IsoLightSource.new(player:getX(), player:getY(), player:getZ(), color[1], color[2], color[3], 4);
+    getCell():addLamppost(lightByPlayer[player]);
 end
 
 local function toggleLightSaber(player, item, item_name, state, hotbar)
@@ -75,12 +76,14 @@ local function LightSaberReplaceInInventory(player)
     local inventory = player:getInventory();
     if inventory == nil then return end
 
-    local primary = player:getPrimaryHandItem();
-    -- Hopefully this is more performant than iterating through all of player inventory
     for saber_name, _ in pairs(Lightsaber) do
-        saber_on = inventory:getItemFromType(saber_name.."_on", true, true)
-        if saber_on ~= nil and (primary == nil or (saber_on:getType() ~= primary:getType())) then
-            toggleLightSaber(player, saber_on, saber_name, false, getPlayerHotbar(player:getPlayerNum()));
+        -- Hopefully this is more performant than iterating through all of player inventory
+        local saber_on = inventory:getItemFromType(saber_name.."_on", true, true);
+        if saber_on ~= nil then
+            local primary = player:getPrimaryHandItem();
+            if primary == nil or saber_on:getType() ~= primary:getType() then
+                toggleLightSaber(player, saber_on, saber_name, false, getPlayerHotbar(player:getPlayerNum()));
+            end
         end
     end
 end
@@ -114,10 +117,8 @@ local function LightSaberAutoOff(key)
     if slotToCheck == -1 then return end
 
     local item = player:getPrimaryHandItem();
-    if item == nil or item:getModID() ~= "lightsaber_craft" or item:getAttachedSlot() == -1 then return end
-
     local saber, state = getSaberAndState(item);
-    if saber == nil then return end
+    if saber == nil or item:getAttachedSlot() == -1 then return end
 
     -- At this point, we can be sure that the player is trying to put away our primary equipped lightsaber
     -- Check if lightsaber is on, if it is toggle off
