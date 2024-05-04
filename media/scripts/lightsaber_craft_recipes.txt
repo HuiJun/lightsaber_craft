@@ -52,6 +52,75 @@ module Base
         keep [Recipe.GetItemTypes.Screwdriver],
     }
 
+	recipe Craft Green Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        GreenkyberCrystal                        = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity = 8,
+        NeedToBeLearn                         : true,
+        Result                                : redsaber_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
+	recipe Craft Orange Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        OrangekyberCrystal                        = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity = 8,
+        NeedToBeLearn                         : true,
+        Result                                : orangesaber_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
+	recipe Craft Purple Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        PurplekyberCrystal                        = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity = 8,
+        NeedToBeLearn                         : true,
+        Result                                : purplesaber_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
+	recipe Craft Pink Lightsaber
+    {
+        ElectronicsScrap                       = 10,
+        Screws                                 = 10,
+        Plank                                  = 1,
+        Amplifier                              = 1,
+        HandTorch                              = 1,
+        TriggerCrafted                         = 1,
+        PinkkyberCrystal                        = 1,
+        Time                                  : 1000.0,
+        Category                              : Electrical,
+        SkillRequired                         : Electricity = 8,
+        NeedToBeLearn                         : true,
+        Result                                : pinksaber_off,
+        keep [Recipe.GetItemTypes.Screwdriver],
+    }
+
+
 	recipe Craft Luke's Lightsaber
     {
         ElectronicsScrap                       = 10,

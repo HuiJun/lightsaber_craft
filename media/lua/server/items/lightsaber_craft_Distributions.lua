@@ -114,7 +114,7 @@ table.insert(SuburbsDistributions["all"]["postbox"].items, 5);
 ------------------------------------------------
 -- Purple Kyber Crystal
 ------------------------------------------------
---[[
+
 table.insert(ProceduralDistributions["list"]["JewelryGems"].items, "lightsaber_craft.PurplekyberCrystal");
 table.insert(ProceduralDistributions["list"]["JewelryGems"].items, 10);
 table.insert(ProceduralDistributions["list"]["JewelryOthers"].items, "lightsaber_craft.PurplekyberCrystal");
@@ -133,7 +133,7 @@ table.insert(SuburbsDistributions["all"]["postbox"].items, 5);
 ------------------------------------------------
 -- Orange Kyber Crystal
 ------------------------------------------------
---[[
+
 table.insert(ProceduralDistributions["list"]["JewelryGems"].items, "lightsaber_craft.OrangekyberCrystal");
 table.insert(ProceduralDistributions["list"]["JewelryGems"].items, 10);
 table.insert(ProceduralDistributions["list"]["JewelryOthers"].items, "lightsaber_craft.OrangekyberCrystal");
@@ -152,7 +152,7 @@ table.insert(SuburbsDistributions["all"]["postbox"].items, 5);
 ------------------------------------------------
 -- Pink Kyber Crystal
 ------------------------------------------------
---[[
+
 table.insert(ProceduralDistributions["list"]["JewelryGems"].items, "lightsaber_craft.PinkkyberCrystal");
 table.insert(ProceduralDistributions["list"]["JewelryGems"].items, 10);
 table.insert(ProceduralDistributions["list"]["JewelryOthers"].items, "lightsaber_craft.PinkkyberCrystal");

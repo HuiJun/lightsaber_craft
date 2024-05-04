@@ -1,6 +1,7 @@
 module Base
 {
-    model bluesaber_off
+
+    model lightsaber_off
     {
         mesh    = weapons/1handed/lightsaber_off,
         texture = weapons/1handed/lightsaber_off,
@@ -8,44 +9,56 @@ module Base
 
     model bluesaber_on
     {
-        mesh    = weapons/1handed/lightsaber_blue_on,
+        mesh    = weapons/1handed/lightsaber_on,
         texture = weapons/1handed/lightsaber_blue,
-    }
-
-    model yellowsaber_off
-    {
-        mesh    = weapons/1handed/lightsaber_off,
-        texture = weapons/1handed/lightsaber_off,
     }
 
     model yellowsaber_on
     {
-        mesh    = weapons/1handed/lightsaber_yellow_on,
+        mesh    = weapons/1handed/lightsaber_on,
         texture = weapons/1handed/lightsaber_yellow,
-    }
-
-    model redsaber_off
-    {
-        mesh    = weapons/1handed/lightsaber_off,
-        texture = weapons/1handed/lightsaber_off,
     }
 
     model redsaber_on
     {
-        mesh    = weapons/1handed/lightsaber_red_on,
+        mesh    = weapons/1handed/lightsaber_on,
         texture = weapons/1handed/lightsaber_red,
+    }
+
+    model greensaber_on
+    {
+        mesh    = weapons/1handed/lightsaber_on,
+        texture = weapons/1handed/lightsaber_green,
+    }
+
+    model orangesaber_on
+    {
+        mesh    = weapons/1handed/lightsaber_on,
+        texture = weapons/1handed/lightsaber_orange,
+    }
+
+    model purplesaber_on
+    {
+        mesh    = weapons/1handed/lightsaber_on,
+        texture = weapons/1handed/lightsaber_purple,
+    }
+
+    model pinksaber_on
+    {
+        mesh    = weapons/1handed/lightsaber_on,
+        texture = weapons/1handed/lightsaber_pink,
     }
 
     model anakin_off
     {
-        mesh    = weapons/1handed/lightsaber_off,
-        texture = weapons/1handed/lightsaber_off,
+        mesh    = weapons/1handed/anakin_off,
+        texture = weapons/1handed/anakin_saber,
     }
 
     model anakin_on
     {
-        mesh    = weapons/1handed/lightsaber_blue_on,
-        texture = weapons/1handed/lightsaber_blue,
+        mesh    = weapons/1handed/anakin_on,
+        texture = weapons/1handed/anakin_saber,
     }
 
     model darthvader_off
