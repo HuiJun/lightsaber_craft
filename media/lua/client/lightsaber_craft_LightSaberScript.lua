@@ -6,24 +6,28 @@
 ------------------------------------------------------------------------------------------------------------------------
 
 local lightByPlayer = {};
-local playerSaberStates = {};
 
 local function getSaberAndState(player, item)
+    local playerSaberStates = {};
     if player == nil then
         player = getPlayer();
     end
-    if player == nil then return end
-    if playerSaberStates[player] == nil then
-        if item == nil then
-            item = player:getPrimaryHandItem();
-        end
-        if item == nil or item:getModID() ~= "lightsaber_craft" then return nil end
-        local type = item:getType();
-        if type == nil then return nil end
-        local t = {};
-        for i in string.gmatch(type, "[^_]+") do
-            t[#t + 1] = i;
-        end
+    if player == nil then return nil,nil end
+    playerSaberStates[player] = {};
+    print('Player: ');
+    print(player);
+    if item == nil and player ~= nil then
+        item = player:getPrimaryHandItem();
+    end
+    if item == nil then return nil,nil end
+    if item:getModID() ~= "lightsaber_craft" then return nil,nil end
+    local type = item:getType();
+    if type == nil then return nil,nil end
+    local t = {};
+    for i in string.gmatch(type, "[^_]+") do
+        t[#t + 1] = i;
+    end
+    if t[1] ~= nil and t[2] ~= nil then
         playerSaberStates[player].saber = t[1];
         playerSaberStates[player].state = t[2];
     end
@@ -48,14 +52,17 @@ local function setAmbientLight(player, color)
     getCell():addLamppost(lightByPlayer[player]);
 end
 
-local function toggleLightSaber(player, item_name, state, hotbar)
-    local state_int = state and 1 or 0 -- This is tricky because the state bool reflects whether the saber is off.
-    player:playSound(Lightsaber[item_name][state_int].Sound);
-
+local function toggleLightSaber(player, item_id, item_name, state, hotbar)
+    local request_state = state and 1 or 0 -- This is tricky because the state bool reflects whether the saber is off.
+    player:playSound(Lightsaber[item_name][request_state].Sound);
     local inventory = player:getInventory();
-    local old_item = player:getPrimaryHandItem();
-    local new_item = inventory:AddItem(Lightsaber[item_name][state_int].Model);
-    new_item:setCondition(old_item:getCondition());
+
+    local old_item = inventory:getItemById(item_id);
+    local new_item = inventory:AddItem(Lightsaber[item_name][request_state].Model);
+
+    if old_item ~= nil then
+        new_item:setCondition(old_item:getCondition());
+    end
 
     handleHotbarSwap(hotbar, old_item, new_item);
 
@@ -76,15 +83,13 @@ local function toggleLightSaber(player, item_name, state, hotbar)
 end
 
 local function LightSaberGlow(player)
-    local saber, state = getSaberAndState(player, player:getPrimaryHandItem());
+    local item = player:getPrimaryHandItem();
+    local saber, state = getSaberAndState(player, item);
     if saber == nil or state == "off" or Lightsaber[saber] == nil then return end
-
     setAmbientLight(player, Lightsaber[saber].LightColorData);
-    -- if item:getBloodLevel() > 0 then
-    --   item:setBloodLevel(0);
-    --   player:resetModel();
-    -- end
-    -- This works, but is heavy on fps usage with very minimal functionality. Better to disable it.
+    if item:getBloodLevel() == 0 then return end
+    item:setBloodLevel(0);
+    player:resetEquippedHandsModels();
     -- player:playSound("SaberHum") -- This was noted in the original mod, but this humming is indeed annoying
 end
 
@@ -98,7 +103,7 @@ local function LightSaberReplaceInInventory(player)
         if saber_on ~= nil then
             local primary = player:getPrimaryHandItem();
             if primary == nil or saber_on:getType() ~= primary:getType() then
-                toggleLightSaber(player, saber_name, false, getPlayerHotbar(player:getPlayerNum()));
+                toggleLightSaber(player, saber_on:getID(), saber_name, false, getPlayerHotbar(player:getPlayerNum()));
             end
         end
     end
@@ -109,12 +114,12 @@ local function LightSaberTrigger(key)
         local player = getPlayer();
         if player == nil then return end
 
-        local item = player:getPrimaryHandItem();
-        local saber, state = getSaberAndState(player, item);
+        local primary = player:getPrimaryHandItem();
+        if primary == nil then return end
+        local saber, state = getSaberAndState(player, primary);
         if saber == nil then return end
-
         if Lightsaber[saber] ~= nil then
-            toggleLightSaber(player, saber, state == "off", getPlayerHotbar(player:getPlayerNum()));
+            toggleLightSaber(player, primary:getID(), saber, state == "off", getPlayerHotbar(player:getPlayerNum()));
         end
     end
 end
@@ -133,15 +138,15 @@ local function LightSaberAutoOff(key)
     if slotToCheck == -1 then return end
 
     local item = player:getPrimaryHandItem();
-    local saber, state = getSaberAndState(item);
+    if item == nil then return end
+
+    local saber, _ = getSaberAndState(player, item);
     if saber == nil or item:getAttachedSlot() == -1 then return end
 
     -- At this point, we can be sure that the player is trying to put away our primary equipped lightsaber
-    -- Check if lightsaber is on, if it is toggle off
+    -- Toggle off
 
-    if state == "on" then
-        toggleLightSaber(player, saber, false, hotbar);
-    end
+    toggleLightSaber(player, item:getID(), saber, false, hotbar);
 end
 
 Events.OnPlayerUpdate.Add(LightSaberGlow);

@@ -1,9 +1,9 @@
 module lightsaber_craft
 {
-	imports
-	{
-	    Base
-	}
+    imports
+    {
+        Base
+    }
 
     item bluesaber_off
     {
@@ -91,7 +91,7 @@ module lightsaber_craft
         DamageCategory            = Slash,
         DamageMakeHole            = TRUE,
         AttachmentType            = Knife,
-        CloseKillMove			  = Jaw_Stab,
+        CloseKillMove             = Jaw_Stab,
     }
 
     item yellowsaber_off
@@ -180,7 +180,7 @@ module lightsaber_craft
         DamageCategory            = Slash,
         DamageMakeHole            = TRUE,
         AttachmentType            = Knife,
-        CloseKillMove			  = Jaw_Stab,
+        CloseKillMove             = Jaw_Stab,
     }
 
     item redsaber_off
@@ -269,7 +269,7 @@ module lightsaber_craft
         DamageCategory            = Slash,
         DamageMakeHole            = TRUE,
         AttachmentType            = Knife,
-        CloseKillMove			  = Jaw_Stab,
+        CloseKillMove             = Jaw_Stab,
     }
 
     item greensaber_off
@@ -358,7 +358,7 @@ module lightsaber_craft
         DamageCategory            = Slash,
         DamageMakeHole            = TRUE,
         AttachmentType            = Knife,
-        CloseKillMove			  = Jaw_Stab,
+        CloseKillMove             = Jaw_Stab,
     }
 
     item orangesaber_off
@@ -447,7 +447,7 @@ module lightsaber_craft
         DamageCategory            = Slash,
         DamageMakeHole            = TRUE,
         AttachmentType            = Knife,
-        CloseKillMove			  = Jaw_Stab,
+        CloseKillMove             = Jaw_Stab,
     }
 
     item purplesaber_off
@@ -536,7 +536,7 @@ module lightsaber_craft
         DamageCategory            = Slash,
         DamageMakeHole            = TRUE,
         AttachmentType            = Knife,
-        CloseKillMove			  = Jaw_Stab,
+        CloseKillMove             = Jaw_Stab,
     }
 
     item pinksaber_off
@@ -625,7 +625,7 @@ module lightsaber_craft
         DamageCategory            = Slash,
         DamageMakeHole            = TRUE,
         AttachmentType            = Knife,
-        CloseKillMove			  = Jaw_Stab,
+        CloseKillMove             = Jaw_Stab,
     }
 
     item anakin_off
@@ -714,7 +714,7 @@ module lightsaber_craft
         DamageCategory            = Slash,
         DamageMakeHole            = TRUE,
         AttachmentType            = Knife,
-        CloseKillMove			  = Jaw_Stab,
+        CloseKillMove             = Jaw_Stab,
     }
 
     item darthvader_off
@@ -803,7 +803,7 @@ module lightsaber_craft
         DamageCategory            = Slash,
         DamageMakeHole            = TRUE,
         AttachmentType            = Knife,
-        CloseKillMove			  = Jaw_Stab,
+        CloseKillMove             = Jaw_Stab,
     }
 
     item kenobi_off
@@ -892,7 +892,7 @@ module lightsaber_craft
         DamageCategory            = Slash,
         DamageMakeHole            = TRUE,
         AttachmentType            = Knife,
-        CloseKillMove			  = Jaw_Stab,
+        CloseKillMove             = Jaw_Stab,
     }
 
     item luke_off
@@ -954,33 +954,33 @@ module lightsaber_craft
         ImpactSound               = lsHit2,
         DoorHitSound              = lsHit2,
         HitSound                  = lsHit2,
-        MinimumSwingTime          = 2,         
-        KnockBackOnNoDeath        = TRUE,      
-        SwingAmountBeforeImpact   = 0.01,      
-        Categories                = LongBlade, 
-        ConditionLowerChanceOneIn = 250,       
-        Weight                    = 0.5,       
-        SplatNumber               = 2,         
-        PushBackMod               = 0.25,      
-        SubCategory               = Swinging,  
-        ConditionMax              = 50,        
-        MaxHitCount               = 3,         
-        DoorDamage                = 100,       
-        SwingAnim                 = Bat,       
-        MinRange                  = 0.21,      
-        SwingTime                 = 2,         
-        KnockdownMod              = 3,         
+        MinimumSwingTime          = 2,
+        KnockBackOnNoDeath        = TRUE,
+        SwingAmountBeforeImpact   = 0.01,
+        Categories                = LongBlade,
+        ConditionLowerChanceOneIn = 250,
+        Weight                    = 0.5,
+        SplatNumber               = 2,
+        PushBackMod               = 0.25,
+        SubCategory               = Swinging,
+        ConditionMax              = 50,
+        MaxHitCount               = 3,
+        DoorDamage                = 100,
+        SwingAnim                 = Bat,
+        MinRange                  = 0.21,
+        SwingTime                 = 2,
+        KnockdownMod              = 3,
         SplatBloodOnNoDeath       = TRUE,
-        TreeDamage                = 100,       
-        CriticalChance            = 90,        
-        CritDmgMultiplier         = 20,        
-        MinDamage                 = 20,        
-        MaxDamage                 = 20,        
-        BaseSpeed                 = 1,         
+        TreeDamage                = 100,
+        CriticalChance            = 90,
+        CritDmgMultiplier         = 20,
+        MinDamage                 = 20,
+        MaxDamage                 = 20,
+        BaseSpeed                 = 1,
         WeaponLength              = 0.4,
-        DamageCategory            = Slash,     
+        DamageCategory            = Slash,
         DamageMakeHole            = TRUE,
         AttachmentType            = Knife,
-        CloseKillMove			  = Jaw_Stab,
+        CloseKillMove             = Jaw_Stab,
     }
 }

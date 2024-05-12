@@ -3,7 +3,7 @@ Lightsaber = Lightsaber or {};
 Lightsaber["bluesaber"] = {
     LightColorData={ 0.0, 0.0, 1.0 };
     [0]={
-        Model="lightsaber_craft.lightsaber_off";
+        Model="lightsaber_craft.bluesaber_off";
         Sound="AnakinToff";
     };
     [1]={
@@ -15,7 +15,7 @@ Lightsaber["bluesaber"] = {
 Lightsaber["yellowsaber"] = {
     LightColorData={ 1.0, 1.0, 0.0 };
     [0]={
-        Model="lightsaber_craft.lightsaber_off";
+        Model="lightsaber_craft.yellowsaber_off";
         Sound="AnakinToff";
     };
     [1]={
@@ -27,7 +27,7 @@ Lightsaber["yellowsaber"] = {
 Lightsaber["redsaber"] = {
     LightColorData={ 1.0, 0.0, 0.0 };
     [0]={
-        Model="lightsaber_craft.lightsaber_off";
+        Model="lightsaber_craft.redsaber_off";
         Sound="DarthToff";
     };
     [1]={
@@ -39,7 +39,7 @@ Lightsaber["redsaber"] = {
 Lightsaber["greensaber"] = {
     LightColorData={ 0.0, 1.0, 0.0 };
     [0]={
-        Model="lightsaber_craft.lightsaber_off";
+        Model="lightsaber_craft.greensaber_off";
         Sound="LukeToff";
     };
     [1]={
@@ -51,7 +51,7 @@ Lightsaber["greensaber"] = {
 Lightsaber["orangesaber"] = {
     LightColorData={ 1.0, 0.65, 0.0 };
     [0]={
-        Model="lightsaber_craft.lightsaber_off";
+        Model="lightsaber_craft.orangesaber_off";
         Sound="LukeToff";
     };
     [1]={
@@ -63,7 +63,7 @@ Lightsaber["orangesaber"] = {
 Lightsaber["purplesaber"] = {
     LightColorData={ 0.62, 0.12, 0.94 };
     [0]={
-        Model="lightsaber_craft.lightsaber_off";
+        Model="lightsaber_craft.purplesaber_off";
         Sound="DarthToff";
     };
     [1]={
@@ -75,7 +75,7 @@ Lightsaber["purplesaber"] = {
 Lightsaber["pinksaber"] = {
     LightColorData={ 1.0, 0.75, 0.79 };
     [0]={
-        Model="lightsaber_craft.lightsaber_off";
+        Model="lightsaber_craft.pinksaber_off";
         Sound="DarthToff";
     };
     [1]={
